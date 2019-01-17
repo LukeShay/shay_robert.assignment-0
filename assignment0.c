@@ -117,8 +117,8 @@ int main(int argc, char *argv[])
 
       for(j = 0; j < 3; j = j + 1){ // Cycles through the rows in the Sobel array.
         for(i = 0; i < 3; i = i + 1){ // Cycles through the columns in the Sobel array.
-          accumulatorX = accumulatorX + Kx[j][i] * image[r + (j - 2)][c + (i - 2)]; // Calculates Ox
-          accumulatorY = accumulatorY + Ky[j][i] * image[r + (j - 2)][c + (i - 2)]; // Calculates Oy
+          accumulatorX = accumulatorX + Kx[j][i] * image[r + (j - 1)][c + (i - 1)]; // Calculates Ox
+          accumulatorY = accumulatorY + Ky[j][i] * image[r + (j - 1)][c + (i - 1)]; // Calculates Oy
         }
       }
       out[r][c] =  sqrt((accumulatorX * accumulatorX) + (accumulatorY * accumulatorY)); // Calculates O and stores it in the out array.
