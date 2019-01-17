@@ -108,18 +108,20 @@ int main(int argc, char *argv[])
                   {0, 0, 0},
                   {1, 2, 1}};
 
-  for(int r = 0; r < 1024; r = r+1){
-    for(int c = 0; c < 1024; c = c + 1){
-      int accumulatorX = 0;
-      int accumulatorY = 0;
+  int accumulatorX, accumulatorY, r, c, j, i;
 
-      for(int j = 0; j < 3; j = j + 1){
-        for(int i = 0; i < 3; i = i + 1){
-          accumulatorX = accumulatorX + Kx[j][i] * image[r + (j - 2)][c + (i - 2)];
-          accumulatorY = accumulatorY + Ky[j][i] * image[r + (j - 2)][c + (i - 2)];
+  for(r = 0; r < 1024; r = r+1){ // Cycles through the rows in the image array.
+    for(c = 0; c < 1024; c = c + 1){ // Cycles through the columns in the image array.
+      accumulatorX = 0;
+      accumulatorY = 0;
+
+      for(j = 0; j < 3; j = j + 1){ // Cycles through the rows in the Sobel array.
+        for(i = 0; i < 3; i = i + 1){ // Cycles through the columns in the Sobel array.
+          accumulatorX = accumulatorX + Kx[j][i] * image[r + (j - 2)][c + (i - 2)]; // Calculates Ox
+          accumulatorY = accumulatorY + Ky[j][i] * image[r + (j - 2)][c + (i - 2)]; // Calculates Oy
         }
       }
-      out[r][c] =  sqrt((accumulatorX * accumulatorX) + (accumulatorY * accumulatorY));
+      out[r][c] =  sqrt((accumulatorX * accumulatorX) + (accumulatorY * accumulatorY)); // Calculates O and stores it in the out array.
     }
   }
 
