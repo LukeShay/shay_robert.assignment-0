@@ -108,20 +108,29 @@ int main(int argc, char *argv[])
                   {0, 0, 0},
                   {1, 2, 1}};
 
-  int accumulatorX, accumulatorY, r, c, j, i;
+  int accumulatorX, accumulatorY, r, c, j, i, o;
 
-  for(r = 0; r < 1024; r = r+1){ // Cycles through the rows in the image array.
-    for(c = 0; c < 1024; c = c + 1){ // Cycles through the columns in the image array.
+  for(r = 0; r < 1024; r++){ // Cycles through the rows in the image array.
+    for(c = 0; c < 1024; c++){ // Cycles through the columns in the image array.
       accumulatorX = 0;
       accumulatorY = 0;
 
-      for(j = 0; j < 3; j = j + 1){ // Cycles through the rows in the Sobel array.
-        for(i = 0; i < 3; i = i + 1){ // Cycles through the columns in the Sobel array.
+      for(j = 0; j < 3; j++){ // Cycles through the rows in the Sobel array.
+        for(i = 0; i < 3; i++){ // Cycles through the columns in the Sobel array.
           accumulatorX = accumulatorX + Kx[j][i] * image[r + (j - 1)][c + (i - 1)]; // Calculates Ox
           accumulatorY = accumulatorY + Ky[j][i] * image[r + (j - 1)][c + (i - 1)]; // Calculates Oy
         }
       }
-      out[r][c] =  sqrt((accumulatorX * accumulatorX) + (accumulatorY * accumulatorY)); // Calculates O and stores it in the out array.
+
+      o = sqrt((accumulatorX * accumulatorX) + (accumulatorY * accumulatorY));  // Calculates o.
+
+      if(o >= 255){ // If the o calculation is greater than or equal to 255, out[r][c] is set to 255. This is because when it is greater, it is a negative number when casted to int8_t.
+        out[r][c] = (int8_t)255;
+      }
+      else{
+        out[r][c] = (int8_t)o;
+      }
+
     }
   }
 
