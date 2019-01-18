@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 
   /* Example usage of PGM functions */
   /* This assumes that motorcycle.pgm is a pgm image of size 1024x1024 */
-  read_pgm("bigger_digger.pgm", image, 1024, 1024);
+  read_pgm("motorcycle.pgm", image, 1024, 1024);
 
   int Kx[3][3] = {{-1, 0, 1},
                   {-2, 0 , 2},
@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
 
   /* After processing the image and storing your output in "out", write *
    * to motorcycle.edge.pgm.                                            */
-  write_pgm("bigger_digger.edge.pgm", out, 1024, 1024);
+  write_pgm("motorcycle.edge.pgm", out, 1024, 1024);
 
   return 0;
 }
