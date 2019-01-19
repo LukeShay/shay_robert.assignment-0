@@ -93,8 +93,8 @@ int read_pgm(char *file, void *image, uint32_t x, uint32_t y)
 
 int main(int argc, char *argv[])
 {
-  int8_t image[1024][1024];
-  int8_t out[1024][1024];
+  uint8_t image[1024][1024];
+  uint8_t out[1024][1024];
 
   /* Example usage of PGM functions */
   /* This assumes that motorcycle.pgm is a pgm image of size 1024x1024 */
@@ -125,10 +125,10 @@ int main(int argc, char *argv[])
       o = sqrt((accumulatorX * accumulatorX) + (accumulatorY * accumulatorY));  // Calculates o.
 
       if(o >= 255){ // If the o calculation is greater than or equal to 255, out[r][c] is set to 255. This is because when it is greater, it is a negative number when casted to int8_t.
-        out[r][c] = (int8_t)255;
+        out[r][c] = (uint8_t)255;
       }
       else{
-        out[r][c] = (int8_t)o;
+        out[r][c] = (uint8_t)o;
       }
 
     }
