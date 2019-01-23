@@ -1,12 +1,18 @@
-604b8d3 (HEAD -> master, origin/master, origin/HEAD) Changed file name to sobel.c.
-026ffcb Changed arrays to be uint8_t.
+208b585 (HEAD -> master, origin/master, origin/HEAD) Removed .pgm pictures.
+5cba296 Changed the program so it would take the name of the image as an arguement in the command line.
+61b2d73 Updated Makefile.
+62483e0 Update Makefile
+f82354d Added Makefile.
+ff38922 Added changelog.
+604b8d3 Changed file name to sobel.c
+026ffcb Changed arrays to by uint8_t.
 2b830d2 Updated output of the bigger digger.
 b57d501 Updated output of the motorcycle.
 dacfdff Changed the loop variables to be incremented like this; j++. Added if statement to set the out array equal to 255 if o is greater than 255.
 d69d52a Added output images.
 08b70c5 Changed to find the edges of the motorcycle.
-9b91bc1 Originally had ceil(n/2) from the assignment description as 2. On piazza, the professor mentioned to set is as 1.
+9b91bc1 Orignally had ceil(n/2) from the assignment description as 2. On piazza, the professor mentioned to set is as 1.
 0ae1e81 Input photos.
 991f4df Added comments. Changed variables to be declared prior to the loops.
-2fd71dd Sobel edge finder implementation.
+2fd71dd Sobel edge finder.
 d671baa Initial commit
