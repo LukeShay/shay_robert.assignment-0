@@ -1,1 +1,1 @@
-# shay_robert.assignment-0
+This program implements the sobel filter on PGM images.

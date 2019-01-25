@@ -93,6 +93,11 @@ int read_pgm(char *file, void *image, uint32_t x, uint32_t y)
 
 int main(int argc, char *argv[])
 {
+  if(argc != 2){ // Outputs error if the user does not put in an image.
+      fprintf(stderr, "Usage: %s <picture>\n", argv[0]);
+      return -1;
+  }
+
   uint8_t image[1024][1024];
   uint8_t out[1024][1024];
 
